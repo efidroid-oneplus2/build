@@ -131,6 +131,8 @@ GenerateKernelHeader() {
 
 # pre-parse and minify devicetree
 GeneratePatchedDeviceTree() {
+    cp "$BOOTIMG_APPENDED_FDT" "$FDT_PATCHED"
+    return 0
     if [ ! -z "$BOOTIMG_DT" ] || [ ! -z "$BOOTIMG_APPENDED_FDT" ]; then
         # cleanup
         rm -Rf "$DTBDIR"
